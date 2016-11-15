@@ -1,0 +1,22 @@
+body{
+	font-family: 'Dosis', sans-serif;
+    font-size: 19px;
+}
+
+.scrollable{
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.ng-enter {
+	 transition: .5s;
+	 opacity: 0;
+ }
+
+.ng-enter-active {
+	 opacity: 1;
+ }
+
+input{
+	font-size: 19px !important;
+}
