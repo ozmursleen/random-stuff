@@ -17,6 +17,9 @@
             <li>
                 <img src="img/inactive.png">
             </li>
+            <li>
+                <img src="img/inactive.png">
+            </li>
         </ul>
     </div>
 </div>
@@ -31,7 +34,6 @@
             animateImages = function(){
                 var active = 0;
                 setInterval(function(){
-                    active = $list.find('img.active').index();
                     if(active > $imgs.length){
                         active = 0;
                     } else {
@@ -39,11 +41,11 @@
                     }
                     $imgs.attr('src', 'img/inactive.png');
                     $imgs.eq(active).addClass('active').attr('src', 'img/active.png');
-                }, 300);
+                }, 180);
 
                 setInterval(function(){
                     $imgs.removeClass('active');
-                }, 600);
+                }, 180);
             };
 
         animateImages();
