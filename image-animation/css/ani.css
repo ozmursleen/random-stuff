@@ -1,0 +1,25 @@
+body{
+    background-color: #f9f9f9;
+}
+
+.main-container{
+    margin: 60px auto;
+    max-width: 335px;
+    padding: 15px;
+}
+
+.my-loading-list{
+    margin: 0;
+    padding: 0;
+}
+
+.my-loading-list li{
+    list-style-type: none;
+    float: left;
+    margin: 5px;
+}
+
+.my-loading-list li img{
+    width: 80px;
+    transition: all 0.2s linear;
+}

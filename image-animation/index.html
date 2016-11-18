@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Image Animation</title>
+    <link rel="stylesheet" href="css/ani.css"/>
+</head>
+
+<body>
+
+<div class="main-container">
+    <div class="my-loading">
+        <ul class="my-loading-list">
+            <li>
+                <img src="img/inactive.png">
+            </li>
+            <li>
+                <img src="img/inactive.png">
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+
+<script type="application/javascript">
+
+    $(function(){
+        var $list = $('.my-loading-list'),
+            $imgs = $list.find('img'),
+            animateImages = function(){
+                var active = 0;
+                setInterval(function(){
+                    active = $list.find('img.active').index();
+                    if(active > $imgs.length){
+                        active = 0;
+                    } else {
+                        active++;
+                    }
+                    $imgs.attr('src', 'img/inactive.png');
+                    $imgs.eq(active).addClass('active').attr('src', 'img/active.png');
+                }, 300);
+
+                setInterval(function(){
+                    $imgs.removeClass('active');
+                }, 600);
+            };
+
+        animateImages();
+    });
+
+</script>
+</body>
+</html>
