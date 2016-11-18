@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/calc.css"/>
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <div class="calc-container">
+
+        <div class="calc-input-area">
+            <input id="txtInput" type="text" value="" readonly />
+        </div>
+        <div class="calc-buttons-area">
+            <table id="tblButtons" class="calc-table">
+                <tbody>
+                    <tr>
+                        <td><a href="" class="clear">CE</a> </td>
+                        <td><a href="" class="operator">%</a> </td>
+                        <td><a href="" class="operator">^</a> </td>
+                        <td><a href="" class="delete">del</a> </td>
+                    </tr>
+                    <tr>
+                        <td><a href="">7</a> </td>
+                        <td><a href="">8</a> </td>
+                        <td><a href="">9</a> </td>
+                        <td><a href="" class="operator">+</a> </td>
+                    </tr>
+                    <tr>
+                        <td><a href="">4</a> </td>
+                        <td><a href="">5</a> </td>
+                        <td><a href="">6</a> </td>
+                        <td><a href="" class="operator">-</a> </td>
+                    </tr>
+                    <tr>
+                        <td><a href="">1</a> </td>
+                        <td><a href="">2</a> </td>
+                        <td><a href="">3</a> </td>
+                        <td><a href="" class="operator">*</a> </td>
+                    </tr>
+                    <tr>
+                        <td><a href="">0</a> </td>
+                        <td><a href="">.</a> </td>
+                        <td><a href="" class="equal">=</a> </td>
+                        <td><a href="" class="operator">/</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/calc.js"></script>
+
+<script type="application/javascript">
+
+    $(function(){
+        Calculator.init();
+    });
+
+</script>
+</body>
+</html>
