@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Animate Image Filling Up Using jQuery</title>
+	<link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+	<div id="content">
+		<div id="guy">
+			<div id="guycontainer">
+				<div class="frame">
+					<img src="img/guyframe.png"/>
+				</div>
+				<div id="guyoverlay">
+					<div id="guyedge">&nbsp;</div>
+					<div id="guyblock">&nbsp;</div>
+				</div>
+				<img class="loadpic" src="img/guy.jpg"/>
+			</div>
+		</div>
+		
+		<div id="buttonbox">
+			<h2>Animate Image Filling Up Using jQuery</h2>
+			<br/><br/>
+			<a href="index.html">Reset Animations</a>
+		</div>
+		
+		<div id="dude">
+			<div id="dudecontainer">
+				<div class="frame">
+					<img src="img/guyframe.png"/>
+				</div>
+				<div id="dudeoverlay">
+					<div id="dudeblock">&nbsp;</div>
+					<div id="dudeedge">&nbsp;</div>
+				</div>
+				<img class="loadpic" src="img/guy.jpg"/>
+			</div>
+		</div>	
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#guyoverlay").stop().animate({top:'671px'},{queue:false,duration:5000} );
+			$("#dudeoverlay").stop().animate({top:'-665px'},{queue:false,duration:3500} );
+		});	
+	</script>
+</body>
+</html>
