@@ -1,0 +1,37 @@
+html,body{
+    background-color: #fff;
+}
+
+.max-row{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container{
+    margin-top: 50px;
+}
+
+.my-loading-list{
+    margin: 0 auto;
+    padding: 0;
+    max-width: 152px;
+}
+
+.my-loading-list li{
+    list-style-type: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+.my-loading-list li img{
+    width: 40px;
+    transition: all 0.2s linear;
+}
+
+.img-opacity{
+    box-shadow: 0 17px 17px rgba(0,0,0,.15),0 27px 55px rgba(0,0,0,.3);
+}
+
+.margin-top-20{
+    margin-top: 20px !important;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Audibene Test",
+  "private": "true",
+  "dependencies": {
+    "angular-ui-router": "^0.3.2",
+    "lodash": "^4.17.2",
+    "firebase": "^3.6.1",
+    "angular-bootstrap": "^2.3.0",
+    "bootstrap": "^3.3.7",
+    "angularfire": "^2.1.0"
+  }
+}

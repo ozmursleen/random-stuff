@@ -1,0 +1,37 @@
+<div class="margin-top-20">
+    <div class="row">
+    <div class="col col-md-6">
+        <h4>Appointment List</h4>
+    </div>
+    <div class="col col-md-6 text-right">
+        <button class="btn btn-info" ng-click="filterNextWeekAppts()">Filter Nextweek Appointments</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col col-md-12">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="cust in custList">
+                <td>{{cust.id}}</td>
+                <td>{{cust.apptDate | date:'MM/dd/yyyy'}}</td>
+                <td>{{cust.apptDate | date:'hh:mm a'}}</td>
+                <td>{{cust.firstName}}</td>
+                <td>{{cust.lastName}}</td>
+                <td class="text-center"><a href="" class="btn btn-danger" ng-click="deleteAppt(cust)">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

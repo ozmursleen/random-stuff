@@ -1,0 +1,25 @@
+{
+  "customers" : {
+    "-KXa-LH-eGB4X-YLY6YZ" : {
+      "apptDate" : 1480256811662,
+      "dob" : "04/04/1994",
+      "firstName" : "John",
+      "id" : 3,
+      "lastName" : "Doe"
+    },
+    "-KXa35I9zrgZSed-G5Is" : {
+      "apptDate" : 1480256840640,
+      "dob" : "11/04/2016",
+      "firstName" : "Sarah",
+      "id" : 4,
+      "lastName" : "Cooper"
+    },
+    "-KXa3SkAlusCkqGlJDIG" : {
+      "apptDate" : 1480256840640,
+      "dob" : "11/03/2016",
+      "firstName" : "Chris",
+      "id" : 5,
+      "lastName" : "Evans"
+    }
+  }
+}
