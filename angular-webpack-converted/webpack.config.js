@@ -1,8 +1,6 @@
 var webpack = require('webpack');
-var unminifiedWebpackPlugin = require('unminified-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require("path");
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -11,9 +9,9 @@ module.exports = {
         'angular'
     ],
     output: {
+        path: __dirname + '/dist',
         filename: 'app.bundle.js'
     },
-    devtool: 'source-map',
     module: {
         loaders: [
         {
@@ -34,20 +32,45 @@ module.exports = {
         {
             test: /\.html$/,
             loader: "raw-loader"
-        }]
+        },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            },
+            {
+                test: /\.png$/,
+                loader: "url-loader?limit=100000"
+            },
+            {
+                test: /\.jpg$/,
+                loader: "file-loader"
+            },
+            {
+                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?limit=10000&mimetype=application/font-woff'
+            },
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?limit=10000&mimetype=application/octet-stream'
+            },
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file'
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?limit=10000&mimetype=image/svg+xml'
+            }]
     },
     plugins: [
-        new ExtractTextPlugin('[name].css'),
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './app/index.html'
         })
-       /* new webpack.optimize.UglifyJsPlugin({
+        /*new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }
-        }),
-        new unminifiedWebpackPlugin()*/
+        })*/
     ]
 };

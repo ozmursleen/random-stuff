@@ -1,0 +1,27 @@
+<h2>Messages</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+           <uib-tooltip title="From"></uib-tooltip> From
+        </th>
+        <th>
+            To
+        </th>
+        <th>
+            Message Body
+        </th>
+        <th>
+            Date Sent
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="message in messageList">
+        <td>{{message.from}}</td>
+        <td>{{message.to}}</td>
+        <td>{{message.body}}</td>
+        <td>{{message.date_sent| date:'MM/DD/YYYY'}}</td>
+    </tr>
+    </tbody>
+</table>

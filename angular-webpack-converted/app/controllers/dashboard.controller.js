@@ -1,12 +1,11 @@
 (function () {
     'use strict';
 
-    DashboardController.$inject = ['GithubStatusService'];
-    function DashboardController(gh) {
-        var _this = this;
-        _this.github = '';
+    DashboardController.$inject = ['$scope', 'GithubStatusService'];
+    function DashboardController($scope, gh) {
+        $scope.github = '';
         gh.getStatus().success(function (status) {
-            _this.github = status;
+            $scope.github = status;
         });
     }
 
