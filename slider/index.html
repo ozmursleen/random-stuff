@@ -1,0 +1,43 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Slider</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="scripts/lib/owlcarousel2/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- end styles -->
+
+</head>
+
+<body>
+<div ng-controller="indexController" class="main-content">
+    <div class="slider-header">
+        <h2>find your fit</h2>
+        <p>Check out how it fits on our team below, or take a look at the size chart.</p>
+        <a>view full size chart <i class="fa fa-arrow-right"></i> </a>
+    </div>
+    <slider-component slider-items="items" slider-options="options"></slider-component>
+</div>
+<script type="text/ng-template" id="slider-template.html">
+    <div class="owl-carousel">
+        <div class="slider-item" ng-repeat="item in $ctrl.sliderItems">
+            <div class="slider-content">
+                <img ng-src="{{item.src}}"/>
+                <h2>{{item.size}}</h2>
+                <p>{{item.name}}</p>
+                <p>{{item.measurement|cmToInches}} / {{item.measurement}}cm</p>
+                <p>{{item.description}}</p>
+            </div>
+        </div>
+    </div>
+</script>
+</body>
+
+<script data-main="js/main" src="scripts/lib/requirejs/require.min.js"></script>
+
+</html>

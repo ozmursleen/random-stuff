@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'SofiaPro';
+    src: url('./fonts/sofiapro/SofiaProMedium.woff');
+    font-weight: normal;
+}
+
+body {
+    font-family: 'SofiaPro', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.owl-carousel {
+    position: relative;
+}
+
+.owl-carousel .side-by-side-nav {
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+}
+
+.owl-carousel .side-by-side-nav.left {
+    left: 0;
+}
+
+.owl-carousel .side-by-side-nav.right {
+    right: 0;
+}
+
+.owl-carousel .side-by-side-nav:hover {
+    opacity: 0.7;
+}
+
+.slider-header {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.slider-content,
+.slider-header {
+    text-align: center;
+    transition: all 0.4s linear;
+    padding: 10px;
+}
+
+.slider-content:hover {
+    background-color: #fff;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.slider-content h2,
+.slider-header h2 {
+    font-size: 30px;
+    color: #313131;
+    margin: 0;
+    padding: 0;
+}
+
+.slider-content p,
+.slider-header p {
+    color: #919191;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #0083c3;
+}
