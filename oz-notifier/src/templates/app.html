@@ -1,0 +1,15 @@
+<main ng-controller="appController as appCtrl">
+  <form name="notifForm" novalidate ng-submit="appCtrl.submitNotificationForm()">
+    <input type="text" ng-model="appCtrl.demo.title"/>
+    <input type="text" ng-model="appCtrl.demo.body"/>
+    <select type="text" ng-model="appCtrl.demo.type">
+      <option value="info">Info</option>
+      <option value="error">Error</option>
+      <option value="warning">Warning</option>
+    </select>
+    <input type="submit" value="Submit" />
+  </form>
+  <oz-notifier></oz-notifier>
+</main>
+<footer>
+</footer>

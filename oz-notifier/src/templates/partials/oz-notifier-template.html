@@ -1,0 +1,17 @@
+<div class="notifier-container">
+    <ul class="notification-list" ng-show="$ctrl.notificationList.length > 0">
+        <li ng-repeat="notif in $ctrl.notificationList">
+            <div class="notification-item">
+                <ul class="list-inline">
+                    <li>
+                        <i class="fa fa-{{notif.notifType}}">&times;</i>
+                    </li>
+                    <li>
+                        <p class="header">{{notif.notifTitle}}</p>
+                        <p class="body">{{notif.notifBody}}</p>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>

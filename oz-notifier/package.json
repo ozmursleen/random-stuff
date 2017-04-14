@@ -1,0 +1,60 @@
+{
+  "name": "angular-oz-notifier",
+  "version": "1.0.0",
+  "description": "A notification plugin for angularjs apps",
+  "scripts": {
+    "build": "rimraf dist && webpack --bail --progress --profile",
+    "server": "webpack-dev-server --history-api-fallback --inline --progress",
+    "test": "karma start",
+    "test-watch": "karma start --auto-watch --no-single-run",
+    "start": "npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozmursleen/angular-oz-notifier.git"
+  },
+  "author": "Oz Mursleen",
+  "license": "Open",
+  "bugs": {
+    "url": "https://github.com/ozmursleen/angular-oz-notifier/issues"
+  },
+  "homepage": "https://github.com/oz/angular-oz-notifier",
+  "dependencies": {
+    "angular": "^1.5.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.0",
+    "angular-ui-router": "^0.3.2",
+    "autoprefixer": "^6.0.3",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.7.1",
+    "istanbul-instrumenter-loader": "^1.0.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^1.1.0",
+    "karma-coverage": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "^1.7.0",
+    "node-libs-browser": "^2.0.0",
+    "null-loader": "^0.1.1",
+    "phantomjs-prebuilt": "^2.1.4",
+    "postcss-loader": "^1.1.1",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1",
+    "less": "^2.5.0",
+    "less-loader": "^2.2.0",
+    "css-loader": "0.23.1",
+    "style-loader": "0.13.0"
+  }
+}

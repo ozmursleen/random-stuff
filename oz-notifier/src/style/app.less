@@ -1,0 +1,38 @@
+.notifier-container{
+  position: fixed;
+  right: 0;
+  max-width: 300px;
+
+  .notification-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    > li{
+      list-style-type: none;
+      display: inline-block;
+      .notification-item{
+        margin-top: 5px;
+        background-color: #f9f9f9;
+        border: 1px solid #444;
+        min-width: 250px;
+        border-radius: 5px;
+        ul.list-inline{
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          li{
+            display: inline-block;
+            padding: 5px;
+            vertical-align: middle;
+            p{
+              margin: 0;
+            }
+            .header{
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
