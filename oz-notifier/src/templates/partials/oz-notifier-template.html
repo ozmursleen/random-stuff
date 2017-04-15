@@ -1,14 +1,16 @@
 <div class="notifier-container">
     <ul class="notification-list" ng-show="$ctrl.notificationList.length > 0">
         <li ng-repeat="notif in $ctrl.notificationList">
-            <div class="notification-item">
+            <div class="notification-item animated slideInRight" ng-class="notif.notifType">
+                <a ng-click="$ctrl.removeNotif($index)" title="close" class="notif-close"><i class="fa fa-times"></i></a>
                 <ul class="list-inline">
                     <li>
-                        <i class="fa fa-{{notif.notifType}}">&times;</i>
+                        <i class="fa" ng-class="notif.notifIcon"></i>
                     </li>
                     <li>
                         <p class="header">{{notif.notifTitle}}</p>
                         <p class="body">{{notif.notifBody}}</p>
+                        <p class="time">{{notif.notifTime|date:'h:mm a'}}</p>
                     </li>
                 </ul>
             </div>

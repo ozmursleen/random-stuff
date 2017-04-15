@@ -9,15 +9,11 @@ module.exports = {
 
     },
     template: require('../templates/partials/oz-notifier-template.html'),
-    controller: function(ozNotifierService, $rootScope){
+    controller: function(ozNotifierService){
         var that = this;
         that.notificationList = ozNotifierService.getNotifications();
-
-        /*var scope = $rootScope.$new();
-        scope.$watch(function () {
-            return ozNotifierService.getNotifications();
-        }, function (newVal, oldVal) {
-            console.log('controller', newVal, oldVal);
-        }, true);*/
+        that.removeNotif = function(e, index){
+            ozNotifierService.hide(e, index);
+        };
     }
-}
+};

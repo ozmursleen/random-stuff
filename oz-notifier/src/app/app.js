@@ -5,6 +5,8 @@ import appControllers from '../controllers/main';
 import appRoutes from '../routes/app-routes';
 import appComponents from '../components/main';
 
+import 'animate.css/animate.min.css';
+import 'font-awesome/css/font-awesome.css';
 import '../style/app.less';
 
 let app = () => {

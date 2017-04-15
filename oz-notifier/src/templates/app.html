@@ -1,15 +1,37 @@
 <main ng-controller="appController as appCtrl">
-  <form name="notifForm" novalidate ng-submit="appCtrl.submitNotificationForm()">
-    <input type="text" ng-model="appCtrl.demo.title"/>
-    <input type="text" ng-model="appCtrl.demo.body"/>
-    <select type="text" ng-model="appCtrl.demo.type">
-      <option value="info">Info</option>
-      <option value="error">Error</option>
-      <option value="warning">Warning</option>
-    </select>
-    <input type="submit" value="Submit" />
-  </form>
-  <oz-notifier></oz-notifier>
+    <h3>Generate Notification</h3>
+    <div class="form-container">
+        <form name="notifForm" novalidate ng-submit="appCtrl.submitNotificationForm()">
+            <span ng-init="appCtrl.formHolder.notifForm = notifForm"></span>
+            <div class="input-group">
+                <label>
+                    * Title
+                </label>
+                <input type="text" name="title" required class="element" ng-model="appCtrl.demo.title"/>
+            </div>
+            <div class="input-group">
+                <label>
+                    * Body
+                </label>
+                <input type="text" name="body" required class="element" ng-model="appCtrl.demo.body"/>
+            </div>
+            <div class="input-group">
+                <label>
+                    * Type
+                </label>
+                <select class="element" type="text" name="type" required ng-model="appCtrl.demo.type">
+                    <option value="info">Info</option>
+                    <option value="error">Error</option>
+                    <option value="warning">Warning</option>
+                    <option value="success">Success</option>
+                </select>
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Submit" ng-disabled="appCtrl.formHolder.notifForm.$invalid" class="btn"/>
+            </div>
+        </form>
+    </div>
+    <oz-notifier></oz-notifier>
 </main>
 <footer>
 </footer>

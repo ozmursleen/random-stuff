@@ -13,8 +13,8 @@ describe('app', () => {
       });
     });
 
-    it('should contain the starter url', () => {
-      expect(ctrl.url).toBe('https://github.com/preboot/angular-webpack');
+    it('should contain my stackoverflow profile', () => {
+      expect(ctrl.url).toBe('http://stackoverflow.com/users/2633871/maverickosama92');
     });
   });
 });
