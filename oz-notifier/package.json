@@ -1,5 +1,5 @@
 {
-  "name": "angular-oz-notifier",
+  "name": "oz-notifier",
   "version": "1.0.0",
   "description": "A notification plugin for angularjs apps",
   "scripts": {
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ozmursleen/angular-oz-notifier.git"
+    "url": "https://github.com/ozmursleen/random-stuff/tree/master/oz-notifier"
   },
   "author": "Oz Mursleen",
   "license": "Open",
   "bugs": {
-    "url": "https://github.com/ozmursleen/angular-oz-notifier/issues"
+    "url": "https://github.com/ozmursleen/random-stuff/issues"
   },
-  "homepage": "https://github.com/oz/angular-oz-notifier",
+  "homepage": "https://github.com/ozmursleen/random-stuff",
   "dependencies": {
     "angular": "^1.5.0",
     "url-loader": "^0.5.8"
