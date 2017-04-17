@@ -14,8 +14,9 @@ function AppController(ozNotifierService) {
     
     ozNotifierService.clear();
     
+    //when click submit from UI it generates a notification
     that.submitNotificationForm = function(){
-        ozNotifierService.show(that.demo.title, that.demo.body, that.demo.type);
+        ozNotifierService.show(that.demo.title, that.demo.body, that.demo.type, that.demo.duration);
 
         //clear form
         /*that.demo = {};
@@ -23,6 +24,7 @@ function AppController(ozNotifierService) {
         that.formHolder.notifForm.$setUntouched();*/
     };
 
+    //by default shows all types of notifications to user
     var title = 'Notification Title';
     var body = 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...';
     ozNotifierService.show(title, body, 'info');

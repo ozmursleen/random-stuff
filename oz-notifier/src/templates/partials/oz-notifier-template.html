@@ -1,8 +1,8 @@
 <div class="notifier-container">
     <ul class="notification-list" ng-show="$ctrl.notificationList.length > 0">
         <li ng-repeat="notif in $ctrl.notificationList">
-            <div class="notification-item animated slideInRight" ng-class="notif.notifType">
-                <a ng-click="$ctrl.removeNotif($index)" title="close" class="notif-close"><i class="fa fa-times"></i></a>
+            <div class="notification-item animated {{notif.notifType}}" ng-class="{'slideInRight': !notif.notifHide, 'zoomOut': notif.notifHide}">
+                <a ng-click="$ctrl.removeNotif(notif)" title="close" class="notif-close"><i class="fa fa-times"></i></a>
                 <ul class="list-inline">
                     <li>
                         <i class="fa" ng-class="notif.notifIcon"></i>

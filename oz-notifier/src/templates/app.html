@@ -19,11 +19,24 @@
                 <label>
                     * Type
                 </label>
-                <select class="element" type="text" name="type" required ng-model="appCtrl.demo.type">
+                <select class="element" name="type" required ng-model="appCtrl.demo.type">
+                    <option value="">-- select notification type --</option>
                     <option value="info">Info</option>
                     <option value="error">Error</option>
                     <option value="warning">Warning</option>
                     <option value="success">Success</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>
+                    Duration
+                </label>
+                <select class="element" name="duration" ng-model="appCtrl.demo.duration">
+                    <option value="">-- select notification duration --</option>
+                    <option value="2000">2s</option>
+                    <option value="3000">3s</option>
+                    <option value="4000">3s</option>
                 </select>
             </div>
             <div class="text-center">
