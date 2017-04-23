@@ -4,7 +4,6 @@
  */
 
 var express = require('express'),
-    routes = require('./routes'),
     request = require('request'),
     cheerio = require('cheerio');
 
@@ -26,18 +25,46 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler());
-});
-
 // Routes
-app.get('/', routes.index);
-app.get('/partials/:name', routes.partials);
+app.get('/', function(req, res){
+  res.render('index.html');
+});
 
-appServer = app.listen(3000, function(){
+app.get('/scrapping', function(req, res) {
+  request(req.param('url'), function (error, response, html) {
+    if (!error) {
+      var $ = cheerio.load(html);
+
+      var title, release, rating;
+      var json = {title: "", release: "", rating: ""};
+
+      $('.title_wrapper').filter(function () {
+        var data = $(this);
+        title = data.children().first().text().trim();
+        release = data.children().last().children().last().text().trim();
+
+        json.title = title;
+        json.release = release;
+      });
+
+      $('.ratingValue').filter(function () {
+        var data = $(this);
+        rating = data.text().trim();
+
+        json.rating = rating;
+      });
+
+      res.render('scrapping-result.html', {
+        jsonData: JSON.stringify(json)
+      });
+    } else {
+      res.render('error.html', {
+        jsonData: JSON.stringify(error)
+      });
+    }
+  });
+});
+
+appServer = app.listen(3000, function() {
   console.log("Express server listening on port %d in %s mode", appServer.address().port, app.settings.env);
 });
