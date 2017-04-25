@@ -35,27 +35,56 @@ app.get('/scrapping', function(req, res) {
     if (!error) {
       var $ = cheerio.load(html);
 
-      var title, release, rating;
-      var json = {title: "", release: "", rating: ""};
+      var extractLinks = function(){
+        var linksArray = [];
+        $('a').each(function(){
+          var $a = $(this);
+          if($a && $a.length && $a.prop('href')){
+            linksArray.push({
+              isExternal: ($a.prop('href').indexOf('http://') > -1 || $a.prop('href').indexOf('https://') > -1 || $a.prop('href').indexOf('www.') > -1),
+              url: $a.prop('href')
+            });
+          }
+        });
+        
+        return linksArray;
+      };
 
-      $('.title_wrapper').filter(function () {
-        var data = $(this);
-        title = data.children().first().text().trim();
-        release = data.children().last().children().last().text().trim();
+      var getHtmlVer = function() {
+        return html.toLowerCase().indexOf('<!DOCTYPE html>'.toLowerCase()) > -1 ? 5 : 4;
+      };
 
-        json.title = title;
-        json.release = release;
-      });
+      var getPageTitle = function(){
+        return $('title').text();
+      };
 
-      $('.ratingValue').filter(function () {
-        var data = $(this);
-        rating = data.text().trim();
+      var extractHeadings = function(){
+        var headings = {
+          h1: $('h1').length,
+          h2: $('h2').length,
+          h3: $('h3').length,
+          h4: $('h4').length,
+          h5: $('h5').length,
+          h6: $('h6').length
+        };
+        headings.total = $('h1,h2,h3,h4,h5,h6').length;
+        return headings;
+      };
 
-        json.rating = rating;
-      });
-
+      var isLoginPageExists = function(){
+        return $('input[type="password"]').length > 0;
+      };
+      
+      var finalResult = {
+        links: extractLinks(),
+        pageTitle: getPageTitle(),
+        htmlVersion: getHtmlVer(),
+        headings: extractHeadings(),
+        isLoginExists: isLoginPageExists()
+      };
+      
       res.render('scrapping-result.html', {
-        jsonData: JSON.stringify(json)
+        jsonData: JSON.stringify(finalResult)
       });
     } else {
       res.render('error.html', {

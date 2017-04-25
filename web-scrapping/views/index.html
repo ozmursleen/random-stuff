@@ -10,10 +10,11 @@
     <div class="row">
         <div class="col col-12">
             <form name="frmUrl">
-                <div class="input-group">
-                    <input id="txtUrl" type="text" value="http://www.imdb.com/title/tt1229340/" required class="form-control">
-                   <span class="input-group-btn">
-                      <button id="btnGo" class="btn btn-default" type="submit">Go!</button>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1">http://</span>
+                    <input id="txtUrl" type="text" placeholder="www.abc.com" required class="form-control">
+                    <span class="input-group-btn">
+                      <button id="btnGo" class="btn btn-default btn-lg" type="submit">Go!</button>
                    </span>
                 </div>
             </form>
@@ -27,7 +28,12 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#btnGo').on('click', function(){
-            window.location = '/scrapping?url='+$('#txtUrl').val();
+            var $txtUrl = $('#txtUrl');
+            if($txtUrl.val()){
+                window.location = '/scrapping?url='+$txtUrl.val();
+            }else{
+                alert('Please add url');
+            }
             return false;
         });
     });
