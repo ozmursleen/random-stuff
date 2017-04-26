@@ -1,39 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Web Scrapping</title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <title>Web Analysis</title>
     <link rel='stylesheet' href='/stylesheets/bootstrap/css/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col col-12">
-            <form name="frmUrl">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon" id="sizing-addon1">http://</span>
-                    <input id="txtUrl" type="text" placeholder="www.abc.com" required class="form-control">
-                    <span class="input-group-btn">
-                      <button id="btnGo" class="btn btn-default btn-lg" type="submit">Go!</button>
-                   </span>
-                </div>
-            </form>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">Web Analysis</a>
+</nav>
+
+    <div class="jumbotron text-center orange jumbotron-fluid">
+        <div class="container">
+            <h1>Web Analysis</h1>
+            <p>Does the analysis  for you!!!</p>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+                <div class="card">
+                    <div class="card-block">
+                        <form name="frmUrl">
+                        <div class="form-group">
+                            <h4>Enter Url</h4>
+                            <div class="input-group input-group-lg">
+                                <input id="txtUrl" type="text" placeholder="http://www.abc.com" required class="form-control" />
+                                <div class="input-group-btn">
+                                    <button id="btnGo" class="btn btn-primary-drk btn-lg" type="button"><i class="fa fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="divLoading" class="spinner-loading-backdrop">
+    <div class="spinner-loading-container">
+        <i class="fa fa-refresh fa-4x fa-spin"></i>
+        <p class="spinner-loading-text">Please wait...</p>
+    </div>
 </div>
+
 </body>
+
 <script src="js/lib/jquery/jquery.js" type="text/javascript"></script>
-<script src="stylesheets/bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('#btnGo').on('click', function(){
-            var $txtUrl = $('#txtUrl');
-            if($txtUrl.val()){
-                window.location = '/scrapping?url='+$txtUrl.val();
-            }else{
+    $(document).ready(function() {
+
+        var onEnter = function () {
+            var $txtUrl = $('#txtUrl'),
+                urlValue = $txtUrl.val();
+
+            if (urlValue) {
+                $('#divLoading').show();
+                if (!urlValue.startsWith('http://') && !urlValue.startsWith('https://')) {
+                    urlValue = 'http://' + urlValue;
+                }
+                window.location = '/scrapping?url=' + urlValue
+            } else {
                 alert('Please add url');
             }
+        };
+
+        $('#txtUrl').on('keydown', function(e){
+            if(e.keyCode == 13){
+                onEnter();
+                return false;
+            }
+        });
+
+        $('#btnGo').on('click', function () {
+            onEnter();
             return false;
         });
     });

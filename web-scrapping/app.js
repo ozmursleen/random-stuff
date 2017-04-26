@@ -42,7 +42,8 @@ app.get('/scrapping', function(req, res) {
           if($a && $a.length && $a.prop('href')){
             linksArray.push({
               isExternal: ($a.prop('href').indexOf('http://') > -1 || $a.prop('href').indexOf('https://') > -1 || $a.prop('href').indexOf('www.') > -1),
-              url: $a.prop('href')
+              url: $a.prop('href'),
+              text: $a.text()
             });
           }
         });
@@ -88,7 +89,9 @@ app.get('/scrapping', function(req, res) {
       });
     } else {
       res.render('error.html', {
-        jsonData: JSON.stringify(error)
+        error: error,
+        response: response,
+        html: html
       });
     }
   });

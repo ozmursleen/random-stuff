@@ -2,16 +2,33 @@
 <html>
 <head>
     <title>Error</title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
     <link rel='stylesheet' href='/stylesheets/bootstrap/css/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
 </head>
 <body>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">Web Analysis</a>
+</nav>
+
+<div class="jumbotron text-center orange jumbotron-fluid">
+    <div class="container">
+        <h1>Web Analysis</h1>
+        <p>Does the analysis  for you!!!</p>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col col-12">
+            <h4>Error Details:</h4>
             <div class="alert alert-danger">
-                <p><%= jsonData %></p>
+                <p><%= error %></p>
             </div>
+            <a href="/" class="btn btn-primary-drk btn-large">Go back!</a>
         </div>
     </div>
 </div>

@@ -1,18 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Web Scrapping</title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <title>Web Analysis</title>
     <link rel='stylesheet' href='/stylesheets/bootstrap/css/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
 </head>
 <body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">Web Analysis</a>
+</nav>
+
+<div class="jumbotron text-center orange jumbotron-fluid">
+    <div class="container">
+        <h1>Web Analysis</h1>
+        <p>Does the analysis  for you!!!</p>
+    </div>
+</div>
+
 <div class="container">
+    <input type="hidden" id="txtHiddenResults" value="<%=jsonData%>"/>
     <div class="row">
-        <div class="col col-12">
-            <p><%= jsonData %></p>
+        <div class="col col-lg-12">
+            <h4>Analysis Result:</h4>
+            <div class="analysis-container">
+                <div class="analysis-row">
+                    <h4>HTML/Document Version:</h4>
+                    <p id="pDocVersion"></p>
+                </div>
+                <div class="analysis-row">
+                    <h4>Document Title</h4>
+                    <p id="pTitle"></p>
+                </div>
+                <div class="analysis-row">
+                    <h4>Headings (<span id="spHeadingsTotal"></span>)</h4>
+                    <div class="overflow">
+                        <ul id="headingsList" class="list-group"></ul>
+                    </div>
+                </div>
+                <div class="analysis-row">
+                    <h4>Links (<span id="spLinksTotal"></span>)</h4>
+                    <div class="overflow">
+                        <ul id="linksList" class="list-group"></ul>
+                    </div>
+                </div>
+                <div class="analysis-row">
+                    <h4>Login Form Available?</h4>
+                    <p id="pLoginForm"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-12">
+            <a href="/" class="btn btn-primary-drk btn-large">Go back!</a>
         </div>
     </div>
 </div>
 </body>
 <script src="js/lib/jquery/jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    function renderLinks(links) {
+        $('#spLinksTotal').text(links.length);
+        var linksHtml = '';
+        links.forEach(function(link){
+            if(link.text.trim() && link.url) {
+                var linkInnerHtml = '<a href="#!">' + link.text + '&nbsp;<span class="badge badge-primary pull-right">Internal</span></a>';
+                if (link.isExternal) {
+                    linkInnerHtml = '<a href="' + link.url + '" target="_blank">' + link.text + '&nbsp;<span class="badge badge-info pull-right">External</span></a>';
+                }
+                linksHtml += '<li class="list-group-item">' + linkInnerHtml + '</li>';
+            }
+        });
+
+        if(!links.length){
+            linksHtml = '<li class="list-group-item text-center no-data-found"><p>No links found</p></li>';
+        }
+        $('#linksList').append(linksHtml);
+    }
+
+    function renderHeadings(headings) {
+        $('#spHeadingsTotal').text(headings.total);
+        var headingsHtml = '';
+        for(var key in headings){
+            if(key !== 'total' && headings[key]){
+                headingsHtml += '<li class="list-group-item">' + key + '&nbsp;<span class="badge badge-danger pull-right">'+headings[key]+'</span></li>';
+            }
+        }
+        if(!headings.total){
+            headingsHtml = '<li class="list-group-item text-center no-data-found"><p>No headings found</p></li>';
+        }
+        $('#headingsList').append(headingsHtml);
+    }
+
+    function renderRest(fullReport) {
+        $('#pDocVersion').text(fullReport.htmlVersion);
+        $('#pTitle').text(fullReport.pageTitle);
+        $('#pLoginForm').text(fullReport.isLoginExists ? 'Yes' : 'No');
+    }
+
+    $(document).ready(function () {
+        var fullReport = JSON.parse($('#txtHiddenResults').val());
+        renderRest(fullReport);
+        renderHeadings(fullReport.headings);
+        renderLinks(fullReport.links);
+    });
+</script>
+
 </html>
