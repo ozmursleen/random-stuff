@@ -1,0 +1,127 @@
+.notifier-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  max-width: 300px;
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+.notifier-container .notification-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.notifier-container .notification-list > li {
+  list-style-type: none;
+  display: inline-block;
+}
+.notifier-container .notification-list > li .notification-item {
+  transition: all 0.2s linear;
+  margin-top: 10px;
+  padding: 5px;
+  position: relative;
+  width: 280px;
+  border-radius: 4px;
+  font-family: Tahoma, Arial;
+  font-size: 15px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}
+.notifier-container .notification-list > li .notification-item .notif-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.notifier-container .notification-list > li .notification-item .notif-close:hover {
+  opacity: 0.7;
+}
+.notifier-container .notification-list > li .notification-item.error {
+  background-color: #ff855c;
+  color: #fff;
+}
+.notifier-container .notification-list > li .notification-item.error .header {
+  color: #5c1700;
+}
+.notifier-container .notification-list > li .notification-item.success {
+  background-color: #98D788;
+  color: #fff;
+}
+.notifier-container .notification-list > li .notification-item.success .header {
+  color: #224818;
+}
+.notifier-container .notification-list > li .notification-item.info {
+  background-color: #4FC8ED;
+  color: #fff;
+}
+.notifier-container .notification-list > li .notification-item.info .header {
+  color: #062c37;
+}
+.notifier-container .notification-list > li .notification-item.warning {
+  background-color: #fcce61;
+  color: #000;
+}
+.notifier-container .notification-list > li .notification-item.warning .header {
+  color: #5c4102;
+}
+.notifier-container .notification-list > li .notification-item ul.list-inline {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.notifier-container .notification-list > li .notification-item ul.list-inline li {
+  display: inline-block;
+  padding: 5px;
+  vertical-align: middle;
+  width: 80%;
+}
+.notifier-container .notification-list > li .notification-item ul.list-inline li:first-child {
+  text-align: center;
+  width: 10%;
+}
+.notifier-container .notification-list > li .notification-item ul.list-inline li:first-child .fa {
+  font-size: 20px !important;
+}
+.notifier-container .notification-list > li .notification-item ul.list-inline li p {
+  margin: 0;
+}
+.notifier-container .notification-list > li .notification-item ul.list-inline li .header {
+  font-weight: bold;
+}
+.notifier-container .notification-list > li .notification-item ul.list-inline li .time {
+  margin-top: 5px;
+  text-align: right;
+  font-size: 10px;
+}
+.form-container {
+  max-width: 300px;
+}
+.input-group {
+  display: block;
+  margin: 10px;
+  font-family: Tahoma, Arial;
+  font-size: 14px;
+}
+.input-group label {
+  color: #444;
+  display: block;
+  margin-bottom: 5px;
+}
+.input-group .element {
+  border: 1px solid #eee;
+  height: 30px;
+  padding: 5px;
+  width: 100%;
+}
+.input-group select.element {
+  height: 40px;
+}
+.btn {
+  min-width: 120px;
+  border: 1px solid #eee;
+  padding: 5px;
+}
+.text-center {
+  text-align: center;
+}
